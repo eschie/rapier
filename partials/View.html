@@ -1,0 +1,30 @@
+<div class="btns ctr">
+	<select class="sel" data-ng-model="time.val" data-ng-change="fetch()" data-ng-options="i for i in time.values"></select>
+	<select class="sel" data-ng-model="sort.val" data-ng-change="fetch()" data-ng-options="i for i in sort.values"></select>
+	<input class="search" type="text" data-ng-click="reset()" data-ng-change="fetch()" data-ng-model="inputValue" />
+</div>
+
+<div class="result" data-ng-repeat="item in results">
+	<div class="col span2 score ctr">{{item.score}}</div>
+	<div class="col span6 info">
+		<div class="title">
+			<a href="{{item.url}}">{{item.title}}</a>
+		</div>
+		<div class="subinfo">
+			submitted to <a href="http://reddit.com/r/{{item.subreddit}}">r/{{item.subreddit}}</a> by <a href="http://reddit.com/user/{{item.author}}">{{item.author}}</a> &nbsp;&nbsp;
+			<div class="comments-under">
+				<a href="http://www.reddit.com{{item.permalink}}">
+					({{item.num_comments}}) Comments
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="col span2 info-right">
+		<div class="comments">
+			<a href="http://www.reddit.com{{item.permalink}}">
+				({{item.num_comments}}) Comments
+			</a>
+		</div>
+	</div>
+</div>
+
